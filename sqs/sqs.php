@@ -21,7 +21,7 @@ class AmazonSQS
     {
         $params = [
             'QueueUrl' => $queue_url,
-            'MessageBody' => $msg_body
+            'MessageBody' => $msg_body  // 長度不超過256kb
         ];
         $result = $this->client->sendMessage($params);
     }
