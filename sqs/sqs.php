@@ -14,14 +14,14 @@ class AmazonSQS
 
     public function __construct()
     {
-      $this->client = SqsClient::factory($config); // config是你的aws的credentials
+      $this->client = SqsClient::factory($config);
     }
 
     public function sendQueueMsg($queue_url, $msg_body)
     {
         $params = [
             'QueueUrl' => $queue_url,
-            'MessageBody' => $msg_body  // 長度不超過256kb
+            'MessageBody' => $msg_body
         ];
         $result = $this->client->sendMessage($params);
     }
